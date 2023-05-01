@@ -89,7 +89,7 @@ export default class ImageGallery extends Component {
     };
   
     render() {
-      const { images, error, status, page, totalPages, isShowModal, modalData } =
+      const { images, status, page, totalPages, isShowModal, modalData } =
         this.state;
         console.log(this.state)
       if (status === 'idle') {
