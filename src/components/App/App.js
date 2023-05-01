@@ -14,7 +14,7 @@ handleSubmit = textSearch => {
 
 render() {
   const { textSearch } = this.state;
-
+ 
   return (
     <>
       <Searchbar onSubmit={this.handleSubmit} />

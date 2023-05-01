@@ -14,7 +14,7 @@ export class Searchbar extends Component {
 
     render() {
         const { value } = this.state;
-        console.log(value)
+        
         return (
             <Header>
                <Form onSubmit={ this.handleSubmit }>

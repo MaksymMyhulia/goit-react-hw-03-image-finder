@@ -91,7 +91,7 @@ export default class ImageGallery extends Component {
     render() {
       const { images, status, page, totalPages, isShowModal, modalData } =
         this.state;
-        console.log(this.state)
+        
       if (status === 'idle') {
         return IDLE_MESSAGE;
       }
