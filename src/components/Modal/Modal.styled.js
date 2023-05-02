@@ -2,11 +2,11 @@ import styled from "@emotion/styled";
 
 export const ModalBackdrop = styled.div`
   position: fixed;
-  top: 0;
+  top: 40px;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
 `;
 
 export const ModalContent = styled.div`

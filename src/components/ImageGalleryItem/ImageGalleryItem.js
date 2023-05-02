@@ -3,15 +3,11 @@ import React from "react";
 import { ListItem, Picture } from "./ImageGalleryItem.styled";
 import PropTypes from "prop-types";
 
-export const ImageGalleryItem = ({ item, onImageClick }) => {
-    const { largeImageURL, tags, webformatURL } = item;
+export const ImageGalleryItem = ({ largeImageURL, tags, webformatURL, onOpenModal }) => {
   
     return (
       <ListItem
-        onClick={e => {
-          e.preventDefault();
-          onImageClick({ largeImageURL, tags });
-        }}
+        onClick={() => onOpenModal({ largeImageURL, tags })}
       >
         <div>
           <Picture src={webformatURL} alt={tags} loading="lazy" />
@@ -21,10 +17,8 @@ export const ImageGalleryItem = ({ item, onImageClick }) => {
   };
 
   ImageGalleryItem.propTypes = {
-    item: PropTypes.shape({
-      tags: PropTypes.string.isRequired,
-      webformatURL: PropTypes.string.isRequired,
-      largeImageURL: PropTypes.string.isRequired,
-    }).isRequired,
-    onImageClick: PropTypes.func.isRequired,
+    tags: PropTypes.string.isRequired,
+    webformatURL: PropTypes.string.isRequired,
+    largeImageURL: PropTypes.string.isRequired,
+    onOpenModal: PropTypes.func.isRequired,
   };

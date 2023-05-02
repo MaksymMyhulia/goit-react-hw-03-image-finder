@@ -3,16 +3,16 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { Btn } from './Button.styled';
 
-export const Button = ({ children, type = 'button', onClick = null }) => {
+export const Button = ({ type = 'button', onClick = null }) => {
   return (
     <Btn type={type} onClick={onClick}>
-      {children}
+      Load more
     </Btn>
   );
 };
 
-Btn.propTypes = {
-  type: PropTypes.string,
-  onClick: PropTypes.func,
-  children: PropTypes.any,
-};
+ Btn.propTypes = {
+   type: PropTypes.string,
+   onClick: PropTypes.func.isRequired,
+ };
+

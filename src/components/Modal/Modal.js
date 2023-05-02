@@ -10,14 +10,7 @@ import {
 
 const modalRoot = document.querySelector('#modal-root');
 
-export default class Modal extends Component {
-  static propTypes = {
-    modalData: PropTypes.shape({
-      largeImageURL: PropTypes.string.isRequired,
-      tags: PropTypes.string.isRequired,
-    }),
-    onModalClose: PropTypes.func,
-  };
+export class Modal extends Component {
 
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown);
@@ -29,18 +22,18 @@ export default class Modal extends Component {
 
   handleKeyDown = e => {
     if (e.code === `Escape`) {
-      this.props.onModalClose();
+      this.props.onCloseModal();
     }
   };
 
   handleBackdropeClick = e => {
     if (e.target === e.currentTarget) {
-      this.props.onModalClose();
+      this.props.onCloseModal();
     }
   };
 
   render() {
-    const { largeImageURL, tags } = this.props.modalData;
+    const { largeImageURL, tags } = this.props;
 
     return createPortal(
       <ModalBackdrop onClick={this.handleBackdropeClick}>
@@ -52,4 +45,11 @@ export default class Modal extends Component {
       modalRoot
     );
   }
+};
+
+
+Modal.propTypes = {
+  onCloseModal: PropTypes.func.isRequired,
+  largeImageURL: PropTypes.string.isRequired,
+  tags: PropTypes.string.isRequired,
 };
