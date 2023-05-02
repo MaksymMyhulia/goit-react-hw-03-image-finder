@@ -58,10 +58,13 @@ handleLoadMore = () => {
   this.setState(prevState => ({ page: prevState.page + 1 }));
 };
 
-handleModalOpen = (largeImageURL, tags) => {
+// handleModalOpen = (largeImageURL, tags) => {
+//   this.setState({ showModal: true, largeImageURL, tags });
+// };
+
+handleModalOpen = (largeImageURL) => {
   this.setState({ showModal: true, largeImageURL: largeImageURL.largeImageURL, tags: largeImageURL.tags })
-  
-}
+};
 
 handleModalClose = () => {
   this.setState({ showModal: false , largeImageURL: '', tags: ''});
