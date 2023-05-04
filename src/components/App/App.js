@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { Loader } from "components/Loader/Loader";
 import { Button } from "components/Button/Button";
 import {Modal} from "components/Modal/Modal"; 
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default class App extends Component {
@@ -24,9 +25,11 @@ export default class App extends Component {
 
 componentDidUpdate(_, prevState) {
   const { query, page } = this.state;
-  if (prevState.query !== query || prevState.page !== page) {
+  if (prevState.query !== query || prevState.page !== page || query.trim() !== "") {
     this.fetchImages(query, page);
-  }
+  };
+  if (query.trim() === "") { return toast.error("Value can't be an empty string");
+};
 };
 
 fetchImages = async (query, page) => {
